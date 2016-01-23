@@ -7,7 +7,8 @@ var w = 500;
 						  ];
 	
 			//Create SVG element
-			var svg = d3.select("body")
+			var svg = d3.select("#graph")
+
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
@@ -18,7 +19,7 @@ var w = 500;
 
 			   .append("circle")
 			   .attr('fill-opacity', 0.2)
-				.attr('fill', '#babdb6')
+			.attr('fill', 'red')
 			   .attr("cx", function(d) {
 			   		return d[0];
 			   })
@@ -29,34 +30,30 @@ var w = 500;
 			   		return Math.sqrt(h - d[1]);
 			   });
 
-			svg.selectAll("text")
-			   .data(dataset)
-			   .enter()
-			   .append("text")
-			   .text(function(d) {
-			   		return d[0] + "," + d[1];
-			   })
-			   .attr("x", function(d) {
-			   		return d[0];
-			   })
-			   .attr("y", function(d) {
-			   		return d[1];
-			   })
-			   .attr("font-family", "sans-serif")
-			   .attr("font-size", "11px")
-			   .attr("fill", "red");
+			
 
 			svg.selectAll('circle').on("mouseover", rollover);
 			svg.selectAll('circle').on("mouseleave",rollaway)
 
 			function rollover(){
-				console.log(this);
-				this.style.stroke = "red";
-								console.log('hey');
+					d3.select(this).attr('fill-opacity',1.0)
+								.attr("stroke-width",3.0)
+								.attr("stroke", "black");
+
+					document
+					console.log(this);
+
+
+								/// WHAT S HAPPENING //
+
+
+								// i hate these people 
 			}
 
 			function rollaway(){
+
+												d3.select(this).attr('fill-opacity',0.2)
+												.attr("stroke","none");
+
 				console.log(this);
-				this.style.stroke = "green";
-				console.log(" i hate ths song ");
 			}
