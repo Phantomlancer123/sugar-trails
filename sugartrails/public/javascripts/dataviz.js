@@ -78,7 +78,7 @@ svg.selectAll("circle")
 
 
 			   svg.selectAll('circle').on("mouseover", rollover);
-			svg.selectAll('circle').on("mouseleave",rollaway)
+			svg.selectAll('circle').on("mouseleave",rollaway);
 
 var details = d3.select("#info")
 						.attr("width", w)

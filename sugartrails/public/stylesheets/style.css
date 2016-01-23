@@ -36,12 +36,15 @@ body {
 }
 
 button { 
+
+  float: left;
   border: none;
   display: block;
-  width: 500px;
+  width: 200px;
   background-color: black;
   color: white;
   margin: 0.5em auto;
+  margin-right: 10px;
   padding: 0.5em;
   font-size: 20px;
 }
