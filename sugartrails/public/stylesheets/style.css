@@ -1,8 +1,44 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Futura", Helvetica, Arial, sans-serif;
 }
 
+#entrance{
+	font-size:50px;
+	text-align:center;
+	color: #dc4f4f;
+}
+
+#entrancelink{
+	font-size:20px;
+	text-align:center;
+}
+
+#entrancelink>a:link{
+	text-decoration: none;
+	color: #dc4f4f;
+}
+
+#entrancelink>a:visited{
+		text-decoration: none;
+
+	color: #dc4f4f;
+}
+
+
+#entrancelink>a:hover{
+	color: #ff8787;
+}
+
+
+
+svg{
+}
+
+#svgcontainer{
+	width:100%;
+	text-align:center;
+}
 a {
   color: #00B7FF;
 }
