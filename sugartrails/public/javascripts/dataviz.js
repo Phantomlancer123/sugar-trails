@@ -15,7 +15,10 @@ var w = 500;
 			svg.selectAll("circle")
 			   .data(dataset)
 			   .enter()
+
 			   .append("circle")
+			   .attr('fill-opacity', 0.2)
+				.attr('fill', '#babdb6')
 			   .attr("cx", function(d) {
 			   		return d[0];
 			   })
@@ -43,10 +46,17 @@ var w = 500;
 			   .attr("font-size", "11px")
 			   .attr("fill", "red");
 
-			svg.selectAll('circle').on("mouseover", callback);
+			svg.selectAll('circle').on("mouseover", rollover);
+			svg.selectAll('circle').on("mouseleave",rollaway)
 
-			function callback(){
+			function rollover(){
 				console.log(this);
 				this.style.stroke = "red";
 								console.log('hey');
+			}
+
+			function rollaway(){
+				console.log(this);
+				this.style.stroke = "green";
+				console.log(" i hate ths song ");
 			}
