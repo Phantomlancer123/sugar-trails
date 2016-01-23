@@ -4,8 +4,9 @@ body {
 }
 
 #graph{
+	width:40%;
+	margin-right: 5px;
 	text-align: center;
-	width: 100%;
 }
 
 #entrance{
