@@ -3,10 +3,53 @@ body {
   font: 14px "Futura", Helvetica, Arial, sans-serif;
 }
 
+#auth{
+	width:100%;
+}
+
+#viz{
+	width:100%;
+	height:500px;
+}
+
+ .tooltip {
+        background: #eee;
+        box-shadow: 0 0 5px #999999;
+        color: #333;
+        display: none;
+        font-size: 12px;
+        left: 130px;
+        padding: 10px;
+        position: absolute;
+        text-align: center;
+        top: 95px;
+        width: 80px;
+        z-index: 10;
+      }
+      .legend {
+        font-size: 12px;
+      }
+      rect {
+        cursor: pointer;                                              /* NEW */
+        stroke-width: 2;
+      }
+      rect.disabled {                                                 /* NEW */
+        fill: transparent !important;                                 /* NEW */
+      }                                                               /* NEW */
+      h1 {                                                            /* NEW */
+        font-size: 14px;                                              /* NEW */
+        text-align: center;                                           /* NEW */
+      }                      
 #graph{
+	float:left;
 	width:40%;
 	margin-right: 5px;
 	text-align: center;
+}
+
+#info{
+	float:left;
+	width:30%;
 }
 
 #entrance{
