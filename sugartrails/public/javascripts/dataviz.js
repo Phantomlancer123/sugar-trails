@@ -17,7 +17,6 @@ var dataset = [];
   success: function (response) {
   	for (var i = 0; i < response['bloodGlucose'].length; i++){
   		dataset.push([i*13, response['bloodGlucose'][i]['bgValue']['value']]);
-   // console.log(i, response['bloodGlucose'][i]['bgValue']['value']);
 }
 var svg = d3.select("#graph")
             
@@ -99,15 +98,12 @@ var nodes = svg.selectAll("circle")
           d3.select(svg).append("text")
             .attr("dx", function(d){return -20})
             .text(function(d){return d[0]})
-
-					//console.log(this);
         }
 
 
 
 			function rollaway(){
-				/*details.selectAll("foreignObject").remove()
-				svg.selectAll("rect.negative").remove()*/
+
 
 												d3.select(this).attr('fill-opacity',0.2)
 												.attr("stroke","none");
@@ -116,7 +112,6 @@ var nodes = svg.selectAll("circle")
 
 
 
-				//console.log(this);
 			}
   },
   error: function (xhr, status) {
