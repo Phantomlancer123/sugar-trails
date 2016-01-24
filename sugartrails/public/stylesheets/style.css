@@ -1,6 +1,39 @@
-h2 { 
+h2.postmates { 
   font-size: 120px;
+}
+
+h1.postmates { 
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+p.postmates {
+  font-family: "HelveticaNeue-CondensedBold","Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin-top: 1em;
+  font-weight: 200;
+  letter-spacing: 0;
+  font-size: 40px;
+}
+
+input { 
+  background: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  width: 500px;
+  border-width: thin;
+  text-align: center;
+  padding: 0.5em;
+  font-size: 30px;
   font-weight: 100;
+  letter-spacing: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input:focus { 
+  background: rgba(0,0,0,0);
+  outline: none;
 }
 
 .custom {
@@ -90,7 +123,7 @@ section{
 
 section#postmates {
   margin-top: 1px;
-  height: 600px;
+  width: 100%;
   padding: 100px 20px 0px;
 }
 

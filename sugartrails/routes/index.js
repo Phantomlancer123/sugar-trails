@@ -79,7 +79,7 @@ router.get('/postmates', function(req, res, next) {
           gL = "high";
           food = "cucumbers and water";
         } else if (bgValue < 70) {
-          // gL = "low";
+          gL = "low";
           food = "sugar";
         } else { 
           gL = "normal";
@@ -119,6 +119,10 @@ router.get('/postmates', function(req, res, next) {
       });
     } 
   });
+});
+
+router.post('/postmates', function(req, res) { 
+  console.log(req.body.manifest); // res.send this
 });
 
 module.exports = router;

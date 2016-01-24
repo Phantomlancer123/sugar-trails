@@ -18,9 +18,15 @@
       </div>
 </nav>
 <section id="postmates">
-  <h1>Your glucose level is {{ glucoseLevel }}</h1>
-  <h2>{{ bloodGlucose }}</h2>
-  <h1>You should eat {{ food }}</h1>
+  <h1 class="postmates">Your glucose level is {{ glucoseLevel }}.</h1>
+  <h2 class="postmates">{{ bloodGlucose }}</h2>
+  <h1 class="postmates">You should eat {{ food }}.</h1>
+  <form id="form" action="/postmates" method="post" enctype="aaplication/x-www-form-urlencoded">
+    <h1 class="postmates">What would you like to order?</h1>
+    <input type="text" name="manifest" id="textbox">
+  </form>
+
   <!--h1>Your order status: {{ myStatus }}</h1-->
 </section>
+
 
