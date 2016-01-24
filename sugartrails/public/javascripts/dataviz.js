@@ -86,7 +86,7 @@ var nodes = svg.selectAll("circle")
 
 			   .append("circle")
 			   .attr('fill-opacity', 0.2)
-			.attr('fill', 'red')
+			.attr('fill', '#999')
 
 			   .attr("cx", function(d) {
 			   		return d[0];
@@ -110,14 +110,14 @@ var nodes = svg.selectAll("circle")
 				$('#threevizzy').remove();
 
 				console.log(d);
-				size = d[1];
-				if (d[0]>180){
+				size = d[0];
+				if (d[1]>180){
 					fillColor = "#ff0000";
 					init();
 					
 				}
 
-				else if (d[0]<70){
+				else if (d[1]<70){
 					fillColor = "#00ff00";
 					init();
 					}
