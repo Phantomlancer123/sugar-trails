@@ -149,10 +149,10 @@ var nodes = svg.selectAll("circle")
 			function rollaway(){
 
 
-												d3.select(this).attr('fill-opacity',0.2)
-												.attr("stroke","none");
+				d3.select(this).attr('fill-opacity',0.2)
+				.attr("stroke","none");
 
-												var s = d3.select('#active').attr("id","");
+				var s = d3.select('#active').attr("id","");
 
 
 
