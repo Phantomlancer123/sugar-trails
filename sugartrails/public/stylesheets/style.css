@@ -1,8 +1,51 @@
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
+
+
+.custom {
+  color: #555;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.custom p {
+  padding: 10px 20px;
+  margin: 30px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: justify;
+}
+
+p{
+  font-family: 'Helvetica Neue', 'Helvetica';
+  letter-spacing: 1.1px;
+  font-size:15px;
+}
+.avgrund-close {
+  display: block;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 13px;
+}
+
+
+.navbar-inverse .navbar-nav>li>a {
+  padding-top:10px;
+    font-size:20px;
+    height: 100%;
+}
+.navbar-inverse .navbar-nav>li>a {
+  padding-top:30px;
+    font-size:14px;
+    height: 100%;
+}
+
+.navbar-brand{
+  height: 80px;
+}
 .modal {
     display:    none;
     position:   fixed;
@@ -11,30 +54,121 @@
     left:       0;
     height:     100%;
     width:      100%;
-    background: rgba( 255, 255, 255, 1 ) 
+    background: rgba( 20, 20, 20, 1 ) 
                 url('http://sierrafire.cr.usgs.gov/images/loading.gif') 
                 50% 50% 
                 no-repeat;
 }
-
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
 body.loading {
     overflow: hidden;   
 }
 
-/* Anytime the body has the loading class, our
-   modal element will be visible */
 body.loading .modal {
     display: block;
 }
 
-
-body {
-  padding: 50px;
-  font: 14px "Futura", Helvetica, Arial, sans-serif;
+section{
+  text-align:center;
 }
 
+.imageHolder{
+  top: 0;
+  left: 0;
+  background: url("/images/lowpoly.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  height: 600px;
+  z-index:-5;
+}
+
+
+
+section#about{
+  height: 600px;
+  padding: 100px;
+}
+section>h3{
+  text-align: center;
+}
+
+section#team{
+  position: relative;
+  height:600px;
+  width:100%;
+  padding: 200px;
+  margin:0 auto;
+
+  border-style: solid;
+  border: 80px;
+    border-color: #ff0000 #0000ff;
+}
+
+#team> #pennappsphoto{
+   padding: 100px;
+
+  background: url("/images/teamphoto.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:300px;
+  width: 100%;
+  position: absolute;
+
+   bottom: 0;
+  left: 0;
+  height: 600px;
+  z-index:-5;
+}
+
+
+  .axis path,
+  .axis line{
+    fill: none;
+    stroke: white;
+  }
+
+  text{
+    fill:white;
+    opacity: .8;
+    font-family:14px;
+  }
+
+  .line{
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+  }
+
+  .tick text{
+    font-size: 12px;
+  }
+
+  .tick line{
+    opacity: 0.2;
+  }
+
+body {
+  background-color:#333;
+  color: white;
+  padding: 50px;
+  font: 14px "HelveticaNeue-CondensedBold","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+section{
+  width: 100%;
+}
+section#viz{
+  margin: 0;
+  padding-top:80px;
+  padding: 100px;
+  width: 100%;
+  background-color: #333;
+}
 button { 
 
   float: left;
@@ -131,12 +265,33 @@ div {
 	color: #6ecddd;
 }
 
+section{
+
+}
+
+section#viz{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height:600px;
+}
+
+#graph{
+  width:100%;
+  height:100%;
+  margin-bottom:50px;
+}
+#graph>svg{
+  padding-left:50px;
+  padding-right: 50px;
 
 
-svg{
+  width: 100%;
+  height: 100%;
 }
 
 #svgcontainer{
+  height:100%;
+  padding-left:20px;
 	width:100%;
 	text-align:center;
 }
