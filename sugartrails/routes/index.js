@@ -53,7 +53,7 @@ router.get('/app', function(req, res, next) {
 });
 
 router.get('/postmates', function(req, res, next) {
-  var gL, bgValue, deliveryId, food, deliveryStatus;
+  var gL, bgValue, deliveryId, food, deliveryStatus, pick;
 
   var client = new Swagger({
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
@@ -78,12 +78,15 @@ router.get('/postmates', function(req, res, next) {
         if (bgValue > 180) { 
           gL = "high";
           food = "cucumbers and water";
+          pick = false;
         } else if (bgValue < 70) {
           gL = "low";
           food = "sugar";
+          pick = true;
         } else { 
           gL = "normal";
           food = "anything";
+          pick = true;
         }
 
         var deliveryQuote = { 
@@ -113,7 +116,8 @@ router.get('/postmates', function(req, res, next) {
             myStatus: deliveryStatus,
             glucoseLevel: gL,
             bloodGlucose: bgValue,
-            food: food
+            food: food,
+            pick: pick
           });
         });
       });
@@ -145,7 +149,9 @@ router.post('/postmates', function(req, res) {
   };
   
   postmates.new(delivery, function(err, resp) {
+    console.log(resp);
     deliveryStatus = resp.body.status;
+
     res.render('confirmed', { 
       status: deliveryStatus
     });

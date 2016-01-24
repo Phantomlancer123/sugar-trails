@@ -12,7 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/app">< Back</a></li>
-            <li><a href="/postmates">Food for Glucose</a></li>
+            <li><a href="/postmates">Order Postmates!</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -21,10 +21,23 @@
   <h1 class="postmates">Your glucose level is {{ glucoseLevel }}.</h1>
   <h2 class="postmates">{{ bloodGlucose }}</h2>
   <h1 class="postmates">You should eat {{ food }}.</h1>
+  {{#if pick}}
   <form id="form" action="/postmates" method="post" enctype="aaplication/x-www-form-urlencoded">
     <h1 class="postmates">What would you like to order?</h1>
     <input type="text" name="manifest" id="textbox">
+    
+    <h1 class="postmates">Where would you like to order from?</h1>
+    <input type="text" name="pickup_name">
+    
+    <h1 class="postmates">Pick up address</h1>
+    <input type="text" name="pickup_address">
+    
+    <br>
+    <input class="submit" type="submit" name="submit">
   </form>
+  {{else}}
+  <h1 class="postmates">We ordered {{ food }} for you.</h1>
+  {{/if}}
 
   <!--h1>Your order status: {{ myStatus }}</h1-->
 </section>
