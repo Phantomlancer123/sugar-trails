@@ -3,6 +3,7 @@ h2 {
   font-weight: 100;
 }
 
+
 .custom {
   color: #555;
   -webkit-border-radius: 3px;
@@ -52,13 +53,13 @@ p{
 .modal {
     display:    none;
     position:   fixed;
-    z-index:    1000;
+    z-index:    10000;
     top:        0;
     left:       0;
     height:     100%;
     width:      100%;
-    background: rgba( 20, 20, 20, 1 ) 
-                url('http://sierrafire.cr.usgs.gov/images/loading.gif') 
+    background: rgba( 42, 40, 38, 1 ) 
+                url('https://s-media-cache-ak0.pinimg.com/originals/32/77/b7/3277b7c9f90288d254153a752c1297a0.gif') 
                 50% 50% 
                 no-repeat;
 }
