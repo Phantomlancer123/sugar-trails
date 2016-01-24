@@ -106,23 +106,23 @@ var nodes = svg.selectAll("circle")
 			svg.selectAll('circle').on("mouseleave",rollaway);
 			svg.selectAll('circle').on("click", test);
 			function test(d){
-				console.log(d);
+
 				$('#threevizzy').remove();
 
-				console.log(d);
-				size = d[0];
+				size = d[1];
+				console.log(dataset['d[r]']);
 				if (d[1]>180){
-					fillColor = "#ff0000";
+					fillColor = "#0000ff";
 					init();
 					
 				}
 
 				else if (d[1]<70){
-					fillColor = "#00ff00";
+					fillColor = "#ff0000";
 					init();
 					}
 				else {
-					fillColor = "#0000ff"
+					fillColor = "#00ff00"
 					init();
 				}
 
@@ -226,7 +226,7 @@ var SCREEN_WIDTH = window.innerWidth,
           particle.position.z = Math.random() * 2 - 1;
           particle.position.normalize();
           particle.position.multiplyScalar( Math.random() * 10 + 450 );
-          particle.scale.multiplyScalar( 30);
+          particle.scale.multiplyScalar(size/3);
           scene.add( particle );
 
         }
