@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 router.get('/app', function(req, res, next) {
 
    var gL, bgValue;
-   console.log("hey");
   var client = new Swagger({
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
     success: function() {
@@ -32,18 +31,17 @@ router.get('/app', function(req, res, next) {
         var readings = result.obj.bloodGlucose;
         var dataJSON = JSON.stringify(readings);
         var data = JSON.parse(dataJSON);
-        var r = Math.floor(Math.random() * 20 + 1);
-        bgValue = data[r].bgValue.value;
-        if (bgValue > 180) { 
-          gL = "high";
-        } else if (bgValue < 70) {
-          gL = "low";
-        } else { 
-          gL = "normal";
-        }
+        console.log(data);
+        
+        var bgvalues = []
+        for(var i =0; i < data.length; i++){
+         bgvalues.push([i*13, data[i].readingDate, data[i].bgValue.value + " mg/dL"]);
+       }
 
-        console.log(gL);
-        res.render('app');
+       console.log(bgvalues);
+          
+
+        res.render('app',{data:bgvalues});
 
       });
     } 
