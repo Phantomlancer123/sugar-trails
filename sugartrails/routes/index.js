@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/app', function(req, res, next) {
+  res.render('app');
+});
+
+router.get('/postmates', function(req, res, next) {
 
   var client = new Swagger({
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
@@ -30,15 +34,7 @@ router.get('/app', function(req, res, next) {
         console.log(result);
         var readings = result.obj.bloodGlucose;
         var dataJSON = JSON.stringify(readings);
-        /*res.writeHead(200, {
-          'content-type': 'application/json'
-        });*/
         console.log(res);
-  //      res.render('index');
-        
-        //res.end(dataJSON);
-  
-        // convert to js obj for parsing
         var data = JSON.parse(dataJSON);
         for (var i in data) {
           var bgValue = data[i].bgValue.value;
@@ -54,7 +50,7 @@ router.get('/app', function(req, res, next) {
     } 
   });           
   
-    res.render('app');
+    res.render('postmates');
   });
 
 module.exports = router;
