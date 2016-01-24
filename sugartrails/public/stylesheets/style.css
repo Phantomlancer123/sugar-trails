@@ -85,13 +85,17 @@ section{
   z-index:-5;
 }
 
-
+section#postmates {
+  margin-top: 1em;
+  height: 600px;
+  padding: 100px;
+}
 
 section#about{
   height: 600px;
   padding: 100px;
 }
-section>h3{
+section.h3{
   text-align: center;
 }
 

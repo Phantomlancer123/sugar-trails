@@ -15,7 +15,7 @@ router.get('/app', function(req, res, next) {
 });
 
 router.get('/postmates', function(req, res, next) {
-
+  var gL, bgValue;
   var client = new Swagger({
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
     success: function() {
@@ -31,26 +31,26 @@ router.get('/postmates', function(req, res, next) {
         limit:     5000
       },
       function(result){
-        console.log(result);
         var readings = result.obj.bloodGlucose;
         var dataJSON = JSON.stringify(readings);
-        console.log(res);
         var data = JSON.parse(dataJSON);
-        for (var i in data) {
-          var bgValue = data[i].bgValue.value;
-          if (bgValue > 180) { 
-            console.log("high");
-          } else if (bgValue < 70) { 
-            console.log("low");
-          } else { 
-            console.log("normal");
-          }
+        var r = Math.floor(Math.random() * 20 + 1);
+        bgValue = data[r].bgValue.value;
+        if (bgValue > 180) { 
+          gL = "high";
+        } else if (bgValue < 70) {
+          gL = "low";
+        } else { 
+          gL = "normal";
         }
       });
     } 
   });           
-  
-    res.render('postmates');
+    console.log("GlUCOSE " + gL);
+    res.render('postmates', { 
+      glucoseLevel: "low",
+      bloodGlucose: bgValue
+    });
   });
 
 module.exports = router;
