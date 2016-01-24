@@ -88,16 +88,7 @@ var nodes = svg.selectAll("circle")
 
 			}
 
-			function work(){
-
-					$('#show').avgrund({
-  					height: 200,
- 					 holderClass: 'custom',
-  					showClose: true,
-  					showCloseText: 'Close',
-  					enableStackAnimation: true,
-  					template: '<p> please help </p>' });
-			}
+		
 				 /*
 				  var chart = c3.generate({bindto: '#chart',
         data: {
@@ -160,7 +151,8 @@ var nodes = svg.selectAll("circle")
             .attr("dx", function(d){return -20})
             .text(function(d){return d[0]})
 
-					console.log(this);}
+					//console.log(this);
+        }
 
 
 
@@ -175,7 +167,7 @@ var nodes = svg.selectAll("circle")
 
 
 
-				console.log(this);
+				//console.log(this);
 			}
   },
   error: function (xhr, status) {
