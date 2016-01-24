@@ -1,7 +1,7 @@
 App for Penn Apps XIII hackathon focused on providing personalized recommendations for diabetes patients.
 
 ## Setup
-This app uses Node, d3, iOS (for mobile version) and integrates the Johnson & Johnson and PostmatesAPI.
+This app uses Node, d3, threejs, iOS (for mobile version of app) and integrates the Johnson & JohnsonAPI (for getting health data) and PostmatesAPI (for ordering).
 
 ### Run this locally
 Install dependencies by running the following vcommand
