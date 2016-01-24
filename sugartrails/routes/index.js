@@ -20,7 +20,7 @@ router.get('/app', function(req, res, next) {
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
     success: function() {
       //TODO: swap out token for  the one you want to use
-      var token = 'VcBEa7kanEQEvZeOQdW3WzHTrGJa';
+      var token = 'kwMBZw9iWzuaCo1nkTLwE1NUDArq';
       client.clientAuthorizations.authz.oauth2 =
         new Swagger.ApiKeyAuthorization("Authorization", "Bearer " + token, "header");
   
