@@ -4,6 +4,8 @@ var router = express.Router();
 var http = require('http');
 var Swagger = require('swagger-client'); 
 var moment = require('moment');
+var Postmates = require('postmates');
+var postmates = new Postmates('cus_KKUFrgxCNKUNiF', '016b79c4-26df-43f2-adec-371c1ba6f433');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -49,7 +51,8 @@ router.get('/app', function(req, res, next) {
 });
 
 router.get('/postmates', function(req, res, next) {
-  var gL, bgValue;
+  var gL, bgValue, deliveryId, food, deliveryStatus;
+
   var client = new Swagger({
     url: 'http://trident26.cl.datapipe.net/swagger/otr-api.yaml',
     success: function() {
@@ -72,19 +75,48 @@ router.get('/postmates', function(req, res, next) {
         bgValue = data[r].bgValue.value;
         if (bgValue > 180) { 
           gL = "high";
+          food = "cucumbers and water";
         } else if (bgValue < 70) {
-          gL = "low";
+          // gL = "low";
+          food = "sugar";
         } else { 
           gL = "normal";
+          food = "anything";
         }
+
+        var deliveryQuote = { 
+          pickup_address: "4001 Walnut St, Philadelphia, PA 19104",
+          dropoff_address: "Towne Building, Philadelphia, PA"
+        }
+        
+        postmates.quote(delivery, function(err, res) {
+          deliveryId = res.body.id;
+        });
+        
+        var delivery = {
+          manifest: food,
+          pickup_name: "Fresh Grocer",
+          pickup_address: "4001 Walnut St, Philadelphia, PA 19104",
+          pickup_phone_number: "215-222-9200",
+          pickup_business_name: "Fresh Grocer",
+          dropoff_name: "Towne Building",
+          dropoff_address: "Towne Building, Philadelphia, PA",
+          dropoff_phone_number: "415-555-1234",
+          quote_id: deliveryId
+        };
+        
+        postmates.new(delivery, function(err, resp) {
+          deliveryStatus = resp.body.status;
+          res.render('postmates', { 
+            myStatus: deliveryStatus,
+            glucoseLevel: gL,
+            bloodGlucose: bgValue,
+            food: food
+          });
+        });
       });
     } 
-  });           
-    console.log("GlUCOSE " + gL);
-    res.render('postmates', { 
-      glucoseLevel: "low",
-      bloodGlucose: bgValue
-    });
   });
+});
 
 module.exports = router;
